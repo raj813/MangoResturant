@@ -8,7 +8,7 @@ namespace Mango.web.Models
 
         public string Url { get; set; }
 
-        public string Data { get; set; }
+        public Object Data { get; set; }
 
         public string AccessToken { get; set; }
 

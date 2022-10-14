@@ -1,8 +1,8 @@
-﻿using Mango.Services.ProductAPI.Models.Dto;
+﻿using Mango.web.Models;
 
 namespace Mango.web.Services.IServices
 {
-    public interface IProductService
+    public interface IProductService :IBaseService
     {
         Task<T> GetAllProductAsync<T>();
         Task<T> GetAllProductbyIdAsync<T>(int id);
