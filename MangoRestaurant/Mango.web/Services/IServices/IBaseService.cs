@@ -1,9 +1,11 @@
-﻿using Mango.Services.ProductAPI.Models.Dto;
+﻿using Mango.web.Models;
 
 namespace Mango.web.Services.IServices
 {
     public interface IBaseService :IDisposable
     {
-        ResponseDto 
+        ResponseDto responseModel { get; set; }
+
+        Task<T> SendAsync<T>(ApiRequest apiRequest);
     }
 }
