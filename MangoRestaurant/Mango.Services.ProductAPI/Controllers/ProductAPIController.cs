@@ -10,9 +10,9 @@ namespace Mango.Services.ProductAPI.Controllers
         protected ResponseDto _response;
         private IProductRepository _productRepository;
 
-        public ProductAPIController( IProductRepository productRepository)
+        public ProductAPIController(IProductRepository productRepository)
         {
-            this._response =new ResponseDto();
+            this._response = new ResponseDto();
 
             _productRepository = productRepository;
         }
@@ -21,7 +21,7 @@ namespace Mango.Services.ProductAPI.Controllers
         {
             try
             {
-               IEnumerable<ProductDto> productDtos = await _productRepository.Getproducts();
+                IEnumerable<ProductDto> productDtos = await _productRepository.Getproducts();
                 _response.Result = productDtos;
             }
 
@@ -34,18 +34,18 @@ namespace Mango.Services.ProductAPI.Controllers
         }
         [HttpGet]
         [Route("{id}")]
-        public async Task<object> Get(int id) 
+        public async Task<object> Get(int id)
         {
-            try 
+            try
             {
-                ProductDto productDto =  await _productRepository.GetproductbyId(id);
-                _response.Result = productDto; 
+                ProductDto productDto = await _productRepository.GetproductbyId(id);
+                _response.Result = productDto;
             }
 
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _response.IsSuccess = false;
-                _response.ErrorMessages = new List<string> { ex.ToString()};  
+                _response.ErrorMessages = new List<string> { ex.ToString() };
             }
             return _response;
         }
@@ -66,6 +66,7 @@ namespace Mango.Services.ProductAPI.Controllers
             return _response;
         }
         [HttpDelete]
+        [Route("{id}")]
         public async Task<object> Delete(int id)
         {
             try
