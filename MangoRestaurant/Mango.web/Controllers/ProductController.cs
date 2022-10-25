@@ -70,7 +70,6 @@ namespace Mango.web.Controllers
         }
 
 
-
         public async Task<IActionResult> ProductDelete(int ProductId)
         {
             var response = await _productService.GetAllProductbyIdAsync<ResponseDto>(ProductId);
@@ -94,7 +93,7 @@ namespace Mango.web.Controllers
                     return RedirectToAction(nameof(ProductIndex));
                 }
             }
-            return View(model);
+                return View(model);
         }
     }
 }
